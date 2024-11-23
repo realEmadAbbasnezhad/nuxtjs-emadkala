@@ -16,10 +16,22 @@ export default defineNuxtConfig({
         }
     },
     quasar: {
+        plugins: ['Notify'],
         config: {
             brand: {
                 primary: colors.sky[500],
                 background: colors.white
+            },
+        },
+    },
+    vite:{
+        server: {
+            origin: 'http://localhost:8080',
+            proxy: {
+                '/Api': {
+                    target: 'http://localhost:8080',
+                    changeOrigin: true,
+                }
             },
         },
     }
